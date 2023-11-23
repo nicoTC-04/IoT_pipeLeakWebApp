@@ -7,8 +7,8 @@
   }
 
   .highDiv {
-    height: view-height;
-    width: view-width;
+    width: 100%;
+    background-color: aqua;
   }
 
   .formDiv {
@@ -16,6 +16,7 @@
     margin: 0 auto;
     padding-top: 10%;
     text-align: center;
+    background-color: orange;
   }
 
   .logo {
