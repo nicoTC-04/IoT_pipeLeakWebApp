@@ -7,8 +7,8 @@
   }
 
   .highDiv {
-    height: 100%;
-    width: 100%;
+    height: view-height;
+    width: view-width;
   }
 
   .formDiv {
