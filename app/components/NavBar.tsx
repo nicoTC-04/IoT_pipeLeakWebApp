@@ -9,7 +9,7 @@ const Navbar = () => {
     return (
         <div className={styles.header}>
             <Image
-                src="/logo1.png"
+                src="/Logo1.png"
                 alt="Logo"
                 height={80}
                 width={80}

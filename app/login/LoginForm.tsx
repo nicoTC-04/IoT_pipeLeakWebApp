@@ -74,7 +74,7 @@ const LoginForm = () => {
   return (
     <div className={styles.formDiv}>
       <Image
-        src="/logo1.png"
+        src="/Logo1.png"
         alt="Logo"
         height={300}
         width={300}
