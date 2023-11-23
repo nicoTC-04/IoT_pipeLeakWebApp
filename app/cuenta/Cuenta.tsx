@@ -25,7 +25,7 @@ const Cuenta = () => {
     if(loaded) return;
     const fetchData = async () => {
       try {
-        const response = await fetch('http://iotevidencia.uc.r.appspot.com/api/usuarios');
+        const response = await fetch('https://iotevidencia.uc.r.appspot.com/api/usuarios');
         if (!response.ok) {
           // Handle response errors
           throw new Error(`HTTP error: ${response.status}`);
@@ -70,7 +70,7 @@ const Cuenta = () => {
       };
   
       // Make the fetch request to your API endpoint
-      const response = await fetch('http://iotevidencia.uc.r.appspot.com/api/updateUser', {
+      const response = await fetch('https://iotevidencia.uc.r.appspot.com/api/updateUser', {
         method: 'PUT', // Using PUT method for update
         headers: {
           'Content-Type': 'application/json'

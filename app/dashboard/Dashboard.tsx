@@ -184,7 +184,7 @@ const Dashboard = () => {
 
     const fetchData = async () => {
       try {
-        const response = await fetch('http://iotevidencia.uc.r.appspot.com/api/datos');
+        const response = await fetch('https://iotevidencia.uc.r.appspot.com/api/datos');
         if (!response.ok) {
           // Handle response errors
           throw new Error(`HTTP error: ${response.status}`);
@@ -250,7 +250,7 @@ const Dashboard = () => {
     if(loaded2) return;
     const fetchData = async () => {
       try {
-        const response = await fetch('http://iotevidencia.uc.r.appspot.com/api/micros');
+        const response = await fetch('https://iotevidencia.uc.r.appspot.com/api/micros');
         if (!response.ok) {
           // Handle response errors
           throw new Error(`HTTP error: ${response.status}`);

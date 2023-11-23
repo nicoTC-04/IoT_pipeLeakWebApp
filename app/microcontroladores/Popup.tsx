@@ -33,7 +33,7 @@ interface PopupProps {
             };
         
             // Make the fetch request to your API endpoint
-            const response = await fetch('http://iotevidencia.uc.r.appspot.com/api/updateMicroName', {
+            const response = await fetch('https://iotevidencia.uc.r.appspot.com/api/updateMicroName', {
                 method: 'PUT', // Using PUT method for update
                 headers: {
                 'Content-Type': 'application/json'
