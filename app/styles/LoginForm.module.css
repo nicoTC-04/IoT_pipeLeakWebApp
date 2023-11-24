@@ -8,7 +8,6 @@
 
   .highDiv {
     width: 100%;
-    background-color: aqua;
   }
 
   .formDiv {
@@ -16,7 +15,6 @@
     margin: 0 auto;
     padding-top: 10%;
     text-align: center;
-    background-color: orange;
   }
 
   .logo {
@@ -63,7 +61,7 @@
     background-color: rgb(33, 84, 96);
     color: white;
     padding: 10px 15px;
-    margin-top: 30%;
+    margin-top: 35%;
     border: none;
     border-radius: 4px;
     cursor: pointer;
