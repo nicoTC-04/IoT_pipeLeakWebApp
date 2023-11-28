@@ -201,8 +201,9 @@ const Dashboard = () => {
           processedData = filteredData.slice(-10).map(item => {
             const date = new Date(item.fecha * 1000);
             date.setHours(date.getHours() - 6);
+            const formattedDate = date.toISOString().split('.')[0];
             return {
-              date: date.toISOString(),
+              date: formattedDate,
               temperatura: item.temperatura,
               humedad: item.humedad,
               distancia: item.distancia
