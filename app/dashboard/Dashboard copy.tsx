@@ -180,53 +180,51 @@ const Dashboard = () => {
   const average = arr => arr.reduce((a, b) => a + b, 0) / arr.length;
 
   useEffect(() => {
-    if (loaded) return;
-  
+    if(loaded) return;
+
     const fetchData = async () => {
       try {
         const response = await fetch('https://iotevidencia.uc.r.appspot.com/api/datos');
         if (!response.ok) {
+          // Handle response errors
           throw new Error(`HTTP error: ${response.status}`);
         }
         const data = await response.json();
-  
+
         const filteredData = data.filter((dataX) => {
           return dataX.idMicrocontrolador === deviceId && dataX.idUsuario === idUser;
         });
-  
-        let processedData = [];
-  
-        if (aggregationLevel === 'last10') {
-          // Select the last 10 records
-          processedData = filteredData.slice(-10).map(item => {
-            const date = new Date(item.fecha * 1000);
-            date.setHours(date.getHours() - 6);
-            return {
-              date: date.toISOString(),
-              temperatura: item.temperatura,
-              humedad: item.humedad,
-              distancia: item.distancia
-            };
-          });
-        } else {
-          // For other aggregation levels, use the aggregateData function
-          processedData = aggregateData(filteredData, aggregationLevel);
-        }
-  
-        setDates(processedData.map((dataX) => dataX.date));
-        setTemperature(processedData.map((dataX) => dataX.temperatura));
-        setHumidity(processedData.map((dataX) => dataX.humedad));
-        setDistance(processedData.map((dataX) => dataX.distancia));
-  
+    
+        setDeviceData(filteredData);
+
+        const aggregatedData = aggregateData(filteredData, aggregationLevel);
+
+        setDates(aggregatedData.map((dataX) => dataX.date));
+
+        setTemperature(aggregatedData.map((dataX) => {
+          return dataX.temperatura;
+        }));
+
+        setHumidity(aggregatedData.map((dataX) => {
+          return dataX.humedad;
+        }));
+
+        setDistance(aggregatedData.map((dataX) => {
+          return dataX.distancia;
+        }));
+        //console.log(deviceData);
         setLoaded(true);
+        
+        console.log("aggregatedData:");
+        console.log(aggregatedData);
+
       } catch (error) {
         console.error("error fetching data", error);
       }
     };
-  
+
     fetchData();
   }, [deviceId, idUser, aggregationLevel, loaded]);
-  
 
 
   useEffect(() => {
@@ -313,7 +311,6 @@ const Dashboard = () => {
 
         <select onChange={handleAggChange} value={aggregationLevel} className={styles.aggSelect}>
           <option value="live">Live</option>
-          <option value="last10">Ultimos 10</option>
           <option value="minutes">Minutos</option>
           <option value="hours">Horas</option>
           <option value="days">Dias</option>
