@@ -4,3 +4,9 @@ This is a sample project for an IoT solution in a school project. It helps keep 
 
 It has a login function, so that every user can have their own sensors shown, and in the main page it shows different dashboard regarding the collected data. Here are some sample screenshots of the pages.
 
+<p align="center">
+  <img src="login.jpeg" width="200" title="Login page">
+  <img src="dashboard.jpeg" width="200" title="dashboards">
+  <img src="account.jpeg" width="200" title="account page">
+  <img src="sensors.jpeg" width="200" title="sensors page">
+</p>
